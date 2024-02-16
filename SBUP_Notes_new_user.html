@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login to your account </title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      #limg{
+        height: 800px;
+        width: 800px;
+      }
+
+      #main
+      {
+        margin: 20px;
+        border-radius: 60px;
+      }
+
+      #fback{
+    border-radius: 30px;
+  }
+
+
+  /*text input */
+  input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+    @media only screen and (max-width: 940px) {
+  #limg {
+    height: 600px;
+        width: 600px;
+  }
+
+  #main
+      {
+        margin: 10px;
+        border-radius: 40px;
+      }
+
+}
+#pass{
+  display: flex;
+}
+#loginbtn{
+margin-top: 20px;
+}
+
+
+@media only screen and (max-width: 640px) {
+  #limg {
+    height: 400px;
+        width: 400px;
+        margin-top: -70px;
+  }
+  #cont,#forpass
+  {
+    font-size: 15px;
+  }
+  
+}
+
+    </style>
+</head>
+</head>
+<body>
+    
+    
+
+
+      <section id="main" class="text-gray-600 body-font bg-indigo-100">
+        <div class="container px-5 py-24 mx-auto flex flex-wrap items-center">
+          <div class="lg:w-3/5 md:w-1/2 md:pr-16 lg:pr-0 pr-0">
+            <div class=" lg:mt-0 lg:col-span-5 lg:flex">
+                <img id="limg" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiIwzx5Irkbmu66aeZu4UYVAfsfKa6-UGq4zsRnhVnbN2MlIlFPRisbaCSJ_rG1HbZhnA-OUGdQ4xO8v6KO6fkeg74Pn_pajkfM_gbUhZyylC0cd7mRrQ7w9kfu5lPWYmcJId1UGRtWGb50C-1fHZ9QleGhVWNBwRspZbJDKXFmRVhEDf9VmA4jNJc6/s16000/register-access-login-password-internet-online-website-concept-flat-illustration_385073-108-removebg-preview%20(1).png" alt="mockup">
+            </div>      
+      
+          </div>
+          <div id="fback"
+            class="lg:w-2/6 md:w-1/2 bg-gray-100 rounded-lg p-8 flex flex-col md:ml-auto w-full mt-10 md:mt-0"
+          >
+            <h1 class="text-indigo-600 text-2xl font-medium title-font mb-5">
+              Sign Up
+            </h1>
+            <div class="relative mb-4">
+              <label for="fName" class="leading-7 text-lg text-gray-600"
+                >First Name</label
+              >
+              <input
+                type="text"
+                id="fname"
+                name="fname"
+                class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+              />
+            </div>
+
+            <div class="relative mb-4">
+                <label for="lName" class="leading-7 text-lg text-gray-600"
+                  >Last Name</label
+                >
+                <input
+                  type="text"
+                  id="lname"
+                  name="lname"
+                  class="w-full text-lg bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                />
+              </div>
+
+              <div class="relative mb-4">
+                <label for="con-no" class="leading-7 text-lg text-gray-600"
+                  >Contact Number</label
+                >
+                <input
+                type="text"
+                  id="con-no"
+                  name="con-no" maxlength="10" size="10"
+                  class="w-full text-lg bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                />
+
+                <div class="relative mb-4">
+                  <label for="course" class="leading-7 text-lg text-gray-600"
+                    >Course</label
+                  >
+                  <input
+                    type="text"
+                    id="course"
+                    name="course"
+                    class=" text-lg w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                  />
+
+                  <div class="relative mb-4">
+                    <label for="rollno" class="leading-7 text-lg text-gray-600"
+                      >Roll No (EX. 22062) </label
+                    >
+                    <input
+                    type="text"
+                      name="rollno"  maxlength="5"  required  id="rollno"
+                      class="w-full text-lg bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                    />
+
+          
+            <div class="relative mb-4">
+              <label for="email" onclick="ge()" class="leading-7 text-lg text-gray-600"
+                >Email Id</label
+              >
+              <input
+                type="email" onclick="ge()"
+                id="email"
+                name="email"
+                class="w-full text-lg bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+              />
+            </div>
+            <div class="relative mb-4">
+              <label for="email" class="leading-7 text-lg text-gray-600"
+                >Password</label
+              >
+              <input
+                type="password"
+                id="password"
+                name="email"
+                class="w-full text-lg bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+              />
+              <div id="pass">
+                <div id="on1">
+                <input type="checkbox" name="showpassword" onclick="showpassword()" id="showpassword"></div>
+                
+                <div id="on2"> <p id="tp">Show Password
+
+                </p>  </div>
+              </div>
+            </div>
+            <button
+              id="loginbtn"
+              class="text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg"
+            >
+            Signup
+            </button>
+            <a href="SBUP_Notes_Login_user.html">
+                <p id="al" class="text-x cursor-pointer text-indigo-500 mt-3">
+                    already have an account...? Login
+                </p>
+            </a>
+            <a href="https://wa.me/+918767375114">
+              <p id="cont" class="text-x cursor-pointer text-indigo-500 mt-3">
+               
+                  contact us if problem in login.
+              </p>
+          </a>
+          </div>
+        </div>
+      </section>
+
+      <script>
+        
+        function showpassword(){
+          var texpas=document.getElementById('tp');
+            var x=document.getElementById("password");
+            if(x.type==="password"){
+                x.type="text"
+                document.getElementById("tp").innerHTML = "Hide Password";
+            }else{
+                x.type="password";
+                document.getElementById("tp").innerHTML = "Show Password";
+            }
+          }
+
+            function ge()
+
+{
+
+  var fname =  document.getElementById('fname');
+        var lname =  document.getElementById('lname');  
+        var cont= document.getElementById('con-no').value;
+        var email= document.getElementById('email');
+        var password= document.getElementById('password');
+        var rollno = document.getElementById('rollno');
+        var course =document.getElementById('course');  
+  email.value=(fname.value.toUpperCase()+"."+course.value.toUpperCase()+rollno.value+"@SBUP.EDU.IN") ;
+
+}
+
+       
+      </script>
+
+      <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js" ></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase/auth"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase/auth"></script>
+
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js";
+      import {
+        getAuth,
+        createUserWithEmailAndPassword,
+        sendPasswordResetEmail,
+        sendEmailVerification,
+      } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-auth.js";
+      import {
+        getDatabase,
+        set,
+        child,
+        ref,
+        get,
+        update,
+        remove,
+      } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-database.js";
+
+      const firebaseConfig = {
+    apiKey: "AIzaSyCHPiWo28mcgmDwmSQ7OaDNKvLb3w6_DBc",
+    authDomain: "notes-user.firebaseapp.com",
+    projectId: "notes-user",
+    storageBucket: "notes-user.appspot.com",
+    messagingSenderId: "1065283327239",
+    appId: "1:1065283327239:web:f78f42e7832df43f65a1a2"
+  };
+
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const auth = getAuth(app);
+     
+         document.getElementById('loginbtn').addEventListener('click',()=>{
+
+           var fname =  document.getElementById('fname');
+        var lname =  document.getElementById('lname');  
+        var cont= document.getElementById('con-no').value;
+        var email= document.getElementById('email');
+        var password= document.getElementById('password');
+        var rollno = document.getElementById('rollno');
+        var course =document.getElementById('course');  
+        
+        var cemail=(`${fname}${lname}${course}.toUpperCase()${rollno}`) ;
+     if (fname.value === "" || null || 0) {
+          alert("Need to fill your first name");
+        } else if (lname.value === "" || null || 0) {
+          alert("Need to fill your last name");
+        }else if (cont === "" || null || 0) {
+          alert("Need to fill your Contact Number");
+        }  else if (email.value === "" || null || 0) {
+          alert("Need to fill email id");
+        }  else if (password.value === "" || null || 0) {
+          alert("Need to Set your password");
+        } 
+        else  if(rollno.value=== ""|| null || 0){
+            alert("Need to fill your Roll Number");
+        } else  if (course.value === "" || null || 0) {
+          alert("Need to Fill Course ");
+        } 
+        else {
+          console.log(fname.value.toUpperCase()+"."+course.value.toUpperCase()+rollno.value+"@SBUP.EDU.IN");
+          
+            var fname =  document.getElementById('fname');
+var lname =  document.getElementById('lname');  
+var cont= document.getElementById('con-no').value;
+var email= document.getElementById('email');
+var password= document.getElementById('password');
+var rollno = document.getElementById('rollno');
+var course =document.getElementById('course');
+
+email.value=(fname.value.toUpperCase()+"."+course.value.toUpperCase()+rollno.value+"@SBUP.EDU.IN") ;
+const db=getDatabase(app)
+
+
+createUserWithEmailAndPassword(auth, email.value, password.value)
+.then((userCredential) => {
+// Signed in 
+const user = userCredential.user;
+alert(" Your Account Created Successfully");
+///  ------  ////
+ window.location.replace("home.html")
+// ...
+})
+.catch((error) => {
+const errorCode = error.code;
+const errorMessage = error.message;
+alert(error.message)
+// ..
+});
+
+set(ref(db, "/user/" + document.getElementById('rollno').value), {
+       fname:fname.value,
+       lname:lname.value,
+       Roll_no:rollno.value,
+      Course:course.value,
+       email:email.value,
+       contact_no:document.getElementById('con-no').value,
+      
+     })
+
+}})
+        
+document.addEventListener("contextmenu", (event) => {
+         event.preventDefault();
+      });
+
+      </script>
+  
+</body>
+</html>

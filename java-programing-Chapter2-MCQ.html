@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java MCQ Quiz Chapter : 2</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .question {
+            font-size: 32px;
+            margin-bottom: 1rem;
+        }
+
+        .options {
+            list-style-type: none;
+            padding-left: 0;
+           
+        }
+
+        .options li {
+            margin-bottom:24px;
+            font-size: 28px;
+        }
+
+        .options li:hover {
+            margin-bottom:28px;
+            font-size: 32px;
+            transition: 0.2s;
+        }
+        #mar{
+            margin-right: 26px;
+        }
+
+        .option-btn {
+            transition: background-color 0.3s ease;
+        }
+
+        .option-btn:hover {
+            cursor: pointer;
+        }
+
+        .correct {
+            color: green;
+        }
+
+        .wrong {
+            color: red;
+        }
+
+        .hidden {
+            display: none;
+        }
+        #question-answers{
+            font-size: 28px;
+          
+        }
+        li{
+            font-size: 30px;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    
+    <div class="container mx-auto p-4">
+        <h1 class="text-4xl font-bold text-center mb-8">Java MCQ Quiz - Chapter : 2</h1>
+        <div id="quiz" class="mb-8">
+            <div class="question" id="question"></div>
+            <ul class="options" id="options"></ul>
+            <div class="flex">
+                <button id="mar" class="bg-blue-500 text-2xl hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" onclick="previousQuestion()">Previous</button>
+                <button class="bg-blue-500 text-2xl hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" onclick="nextQuestion()">Next</button>
+            </div>
+        </div>
+        <div id="result" class="hidden">
+            <h2 class="text-3xl font-bold mb-4">All Questions and Correct Answers</h2>
+            <ul id="question-answers" class="pl-4 "></ul>
+        </div>
+    </div>
+
+    <script>
+        const questions = [
+        {
+            "question": "Which of these method of class StringBuffer is used to extract a substring from a String object?",
+            "options": ["a) substring()", "b) Substring()", "c) SubString()", "d) None of the mentioned"],
+            "answer": "a) substring()"
+        },
+        {
+            "question": "What will s2 contain after following lines of code? StringBuffer s1 = 'one'; StringBuffer s2 = s1.append('two')",
+            "options": ["a) one", "b) two", "c) onetwo", "d) twoone"],
+            "answer": "c) onetwo"
+        },
+        {
+            "question": "Which of these method of class StringBuffer is used to reverse sequence of characters?",
+            "options": ["a) reverse()", "b) reverseall()", "c) Reverse()", "d) reverseAll()"],
+            "answer": "a) reverse()"
+        },
+        {
+            "question": "Which of these method of class StringBuffer is used to get the length of sequence of characters?",
+            "options": ["a) length()", "b) capacity()", "c) Length()", "d) Capacity()"],
+            "answer": "a) length()"
+        },
+        {
+            "question": "Which of the following are incorrect form of StringBuffer class constructor?",
+            "options": ["a) StringBuffer()", "b) StringBuffer(int size)", "c) StringBuffer(String str)", "d) StringBuffer(int size, String str)"],
+            "answer": "d) StringBuffer(int size, String str)"
+        },
+        {
+            "question": "A SWITCH case statement in Java is a ___ control statement.",
+            "options": ["A) Iteration", "B) Loop", "C) Selection", "D) Jump"],
+            "answer": "C) Selection"
+        },
+        {
+            "question": "Which is the alternative to SWITCH in Java language?",
+            "options": ["A) break, continue", "B) for, while", "C) if, else", "D) goto, exit"],
+            "answer": "C) if, else"
+        },
+        {
+            "question": "What are the keywords used to implement a SWITCH case in Java language?",
+            "options": ["A) switch, case", "B) default", "C) break", "D) All"],
+            "answer": "D) All"
+        },
+        {
+            "question": "What are the parts of a SWITCH in java?",
+            "options": ["A) switch input condition", "B) case constants", "C) case statements", "D) All"],
+            "answer": "D) All"
+        },
+        {
+            "question": "A SWITCH statement accepts ___ type of data as input.",
+            "options": ["A) byte", "B) short", "C) int", "D) All"],
+            "answer": "D) All"
+        },
+        {
+            "question": "A switch statement in Java accepts ___ as input data.",
+            "options": ["A) enum", "B) String", "C) enum and String", "D) long"],
+            "answer": "C) enum and String"
+        },
+        {
+            "question": "What is the purpose of control statements in Java?",
+            "options": ["A) To perform mathematical calculations", "B) To create objects", "C) To declare variables", "D) To control the flow of execution in a program"],
+            "answer": "D) To control the flow of execution in a program"
+        },
+        {
+            "question": "Which control statement is used to execute a block of code only if a certain condition is true?",
+            "options": ["A) switch-case", "B) for loop", "C) if-else", "D) do-while loop"],
+            "answer": "C) if-else"
+        },
+        {
+            "question": "Which loop is guaranteed to execute at least once?",
+            "options": ["A) for loop", "B) while loop", "C) do-while loop", "D) if-else loop"],
+            "answer": "C) do-while loop"
+        },
+        {
+            "question": "Which statement is used to terminate the current iteration of a loop and continue with the next iteration?",
+            "options": ["A) break", "B) return", "C) continue", "D) exit"],
+            "answer": "C) continue"
+        },
+        {
+            "question": "Which control statement is used to execute different code blocks based on the value of an expression?",
+            "options": ["A) switch-case", "B) if-else", "C) for loop", "D) while loop"],
+            "answer": "A) switch-case"
+        },
+        {
+            "question": "What is the purpose of the “default” case in a switch statement?",
+            "options": ["A) It specifies the default value of the expression.", "B) It is used to compare the value of the expression.", "C) It is executed when none of the cases match the value of the expression.", "D) None of these."],
+            "answer": "C) It is executed when none of the cases match the value of the expression."
+        },
+        {
+            "question": "What is the purpose of the “return” statement in a method?",
+            "options": ["A) To declare a variable", "B) To exit the program", "C) To specify the data type of the method", "D) To return a value from the method"],
+            "answer": "D) To return a value from the method"
+        },
+        {
+            "question": "Which control statement is used to execute a block of code repeatedly as long as a condition is true?",
+            "options": ["A) if-else", "B) switch-case", "C) for loop", "D) do-while loop"],
+            "answer": "D) do-while loop"
+        },
+        {
+            "question": "In a switch-case statement, what happens if there is no “break” statement after a case block?",
+            "options": ["A) The program will not compile.", "B) Runtime error.", "C) The next case block will be executed regardless of the condition.", "D) The program will enter in an infinite loop."],
+            "answer": "C) The next case block will be executed regardless of the condition."
+        },
+        {
+            "question": "Which loop is suitable when you want to execute the loop body at least once?",
+            "options": ["A) for loop", "B) while loop", "C) do-while loop", "D) switch-case loop"],
+            "answer": "C) do-while loop"
+        },
+        {
+            "question": "What is the difference between static and instance variables in Java?",
+            "options": ["a) Static variables are associated with the class itself, while instance variables are associated with an instance of a class.", "b) Static variables are shared among all instances of a class, while instance variables have separate values for each instance.", "c) Static variables can be accessed without creating an object, while instance variables require an object reference.", "d) All of the above."],
+            "answer": "d) All of the above."
+        },
+        {
+            "question": "What is the purpose of the “default” case in a switch statement?",
+            "options": ["A) It specifies the default value of the expression.", "B) It is used to compare the value of the expression.", "C) It is executed when none of the cases match the value of the expression.", "D) None of these."],
+            "answer": "C) It is executed when none of the cases match the value of the expression."
+        },
+        {
+            "question": "What is the purpose of the “return” statement in a method?",
+            "options": ["A) To declare a variable", "B) To exit the program", "C) To specify the data type of the method", "D) To return a value from the method"],
+            "answer": "D) To return a value from the method"
+        },
+        {
+            "question": "Which control statement is used to execute a block of code repeatedly as long as a condition is true?",
+            "options": ["A) if-else", "B) switch-case", "C) for loop", "D) do-while loop"],
+            "answer": "D) do-while loop"
+        },
+        {
+            "question": "In a switch-case statement, what happens if there is no “break” statement after a case block?",
+            "options": ["A) The program will not compile.", "B) Runtime error.", "C) The next case block will be executed regardless of the condition.", "D) The program will enter in an infinite loop."],
+            "answer": "C) The next case block will be executed regardless of the condition."
+        },
+        {
+            "question": "Which loop is suitable when you want to execute the loop body at least once?",
+            "options": ["A) for loop", "B) while loop", "C) do-while loop", "D) switch-case loop"],
+            "answer": "C) do-while loop"
+        },
+        {
+            "question": "Which loop construct in Java is best suited when the number of iterations is known?",
+            "options": ["a) for loop", "b) while loop", "c) do-while loop", "d) break statement"],
+            "answer": "a) for loop"
+        },
+        {
+            "question": "What is the purpose of the continue statement in a loop?",
+            "options": ["a) To exit the loop immediately", "b) To skip the current iteration and move to the next iteration", "c) To terminate the program", "d) To execute a specific block of code"],
+            "answer": "b) To skip the current iteration and move to the next iteration"
+        },
+        {
+            "question": "Which loop construct in Java is best suited when the number of iterations is unknown?",
+            "options": ["a) for loop", "b) while loop", "c) do-while loop", "d) none"],
+            "answer": "d) none"
+        },
+        {
+            "question": "What is the key difference between a while loop and a do-while loop in Java?",
+            "options": ["a) The syntax used to define the loop", "b) The number of iterations performed", "c) The condition check timing", "d) The ability to use the break statement"],
+            "answer": "c) The condition check timing"
+        },
+        {
+            "question": "Which loop construct guarantees that the loop body is executed at least once?",
+            "options": ["a) for loop", "b) while loop", "c) do-while loop", "d) continue statement"],
+            "answer": "c) do-while loop"
+        },
+        {
+            "question": "What is an infinite loop?",
+            "options": ["a) A loop that executes only once", "b) A loop that never terminates naturally", "c) A loop that contains an unreachable code block", "d) A loop that uses the continue statement"],
+            "answer": "b) A loop that never terminates naturally"
+        },
+        {
+            "question": "Which statement is used to exit a loop prematurely?",
+            "options": ["a) return statement", "b) continue statement", "c) break statement", "d) exit statement"],
+            "answer": "c) break statement"
+        },
+        {
+            "question": "Which loop construct is best suited for iterating over an array or a collection?",
+            "options": ["a) for loop", "b) while loop", "c) do-while loop", "d) continue statement"],
+            "answer": "a) for loop"
+        },
+        {
+            "question": "Which type of loop is best known for its boolean condition that controls entry to the loop?",
+            "options": ["A. do-while loop", "B. for (traditional)", "C. for-each", "D. while"],
+            "answer": "A. do-while loop"
+        },
+        {
+            "question": "Which type of loop is best known for using an index or counter?",
+            "options": ["A. do-while loop", "B. for (traditional)", "C. for-each", "D. while"],
+            "answer": "B. for (traditional)"
+        },
+        {
+            "question": "Which of the following can loop through an array without referring to the elements by index?",
+            "options": ["A. do-while loop", "B. for (traditional)", "C. for-each", "D. while"],
+            "answer": "C. for-each"
+        }
+    ];
+
+        let currentQuestionIndex = 0;
+
+        function renderQuestion() {
+            const currentQuestion = questions[currentQuestionIndex];
+            const questionElement = document.getElementById('question');
+            const optionsElement = document.getElementById('options');
+
+            questionElement.textContent = currentQuestion.question;
+            optionsElement.innerHTML = '';
+
+            currentQuestion.options.forEach((option, index) => {
+                const li = document.createElement('li');
+                li.textContent = option;
+                li.classList.add('option-btn');
+                li.addEventListener('click', () => {
+                    checkAnswer(index);
+                });
+                optionsElement.appendChild(li);
+            });
+        }
+
+        function checkAnswer(selectedIndex) {
+            const currentQuestion = questions[currentQuestionIndex];
+            const selectedOption = currentQuestion.options[selectedIndex];
+            const correctOption = currentQuestion.answer;
+
+            const optionElements = document.querySelectorAll('.option-btn');
+            optionElements.forEach(option => option.classList.remove('correct', 'wrong'));
+
+            if (selectedOption === correctOption) {
+                event.target.classList.add('correct');
+            } else {
+                event.target.classList.add('wrong');
+            }
+        }
+
+        function nextQuestion() {
+            currentQuestionIndex++;
+            if (currentQuestionIndex < questions.length) {
+                renderQuestion();
+            } else {
+                showResult();
+            }
+        }
+
+        function previousQuestion() {
+            if (currentQuestionIndex > 0) {
+                currentQuestionIndex--;
+                renderQuestion();
+            }
+        }
+
+        function showResult() {
+            document.getElementById('quiz').classList.add('hidden');
+            document.getElementById('result').classList.remove('hidden');
+
+            const questionAnswersElement = document.getElementById('question-answers');
+            questionAnswersElement.innerHTML = '';
+
+            questions.forEach((question, index) => {
+                const li = document.createElement('li');
+                li.textContent = `${index + 1}. ${question.question} \n  -  ${question.answer}`;
+                questionAnswersElement.appendChild(li);
+            });
+        }
+
+        renderQuestion();
+    </script>
+
+<script type="module">
+    import { initializeApp  } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js";
+import {  getAuth, signOut , onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-auth.js";
+
+const firebaseConfig = {
+apiKey: "AIzaSyCHPiWo28mcgmDwmSQ7OaDNKvLb3w6_DBc",
+authDomain: "notes-user.firebaseapp.com",
+projectId: "notes-user",
+storageBucket: "notes-user.appspot.com",
+messagingSenderId: "1065283327239",
+appId: "1:1065283327239:web:f78f42e7832df43f65a1a2"
+};
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+
+document.getElementById("lbtn").addEventListener('click',(e)=>{
+const auth = getAuth();
+signOut(auth).then(() => {
+// Sign-out successful.
+alert("You are SignOut Successfully")
+window.location.replace("index.html")
+}).catch((error) => {
+// An error happened.
+alert(error)
+});
+})
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    
+    const uid = user.uid; 
+   
+    // ...
+  } else {
+    location.replace("SBUP_Notes_Login_user.html")
+  }
+});  
+
+document.addEventListener("contextmenu", (event) => {
+         event.preventDefault();
+      });
+
+      
+  </script>
+</body>
+</html>

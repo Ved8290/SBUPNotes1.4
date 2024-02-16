@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java MCQ Quiz chapter : 1</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .question {
+            font-size: 32px;
+            margin-bottom: 1rem;
+        }
+
+        .options {
+            list-style-type: none;
+            padding-left: 0;
+           
+        }
+
+        .options li {
+            margin-bottom:24px;
+            font-size: 28px;
+        }
+
+        .options li:hover {
+            margin-bottom:28px;
+            font-size: 32px;
+            transition: 0.2s;
+        }
+        #mar{
+            margin-right: 26px;
+        }
+
+        .option-btn {
+            transition: background-color 0.3s ease;
+        }
+
+        .option-btn:hover {
+            cursor: pointer;
+        }
+
+        .correct {
+            color: green;
+        }
+
+        .wrong {
+            color: red;
+        }
+
+        .hidden {
+            display: none;
+        }
+        #question-answers{
+            font-size: 28px;
+          
+        }
+        li{
+            font-size: 30px;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+
+    <center>
+        <div class="h">
+            <div class="header1">
+              <header class="text-gray-600 body-font ">
+                  <div class="container mx -auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+                    <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
+                     
+                      <p  class="w-12 h-11 text-white p-2 bg-indigo-700 rounded-full" viewBox="0 0 24 24"> SBUP </p>
+                        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                      </p>
+                      <span class="ml-3 text-xl">Notes</span>
+                    </a>
+                    <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
+                      <div class="mr-5 hover:text-gray-900" cursor:pointer;><a href="home.html"> Home</a></div> 
+                      <div class="mr-5 hover:text-gray-900"><a href="mailto:vedmahajan8290@gmail.com">Contact Us</a>  </div>
+                     
+                    </nav>
+                    <button class="inline-flex items-center bg-blue-600 border-0 py-1 px-3 focus:outline-none hover:bg-green-600 rounded text-white mt-4 md:mt-0" id="lbtn" >Logout
+                      <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-1" viewBox="0 0 24 24">
+                        <path d="M5 12h14M12 5l7 7-7 7"></path>
+                      </svg>
+                    </button>
+                  </div>
+                </header>
+                </div>
+          
+          </div>
+    </center>
+
+    
+    
+    <div class="container mx-auto p-4">
+        <h1 class="text-4xl font-bold text-center mb-8">Java MCQ Quiz Chapter : 1</h1>
+        <div id="quiz" class="mb-8">
+            <div class="question" id="question"></div>
+            <ul class="options" id="options"></ul>
+            <div class="flex">
+                <button id="mar" class="bg-blue-500 text-2xl hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" onclick="previousQuestion()">Previous</button>
+                <button class="bg-blue-500 text-2xl hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" onclick="nextQuestion()">Next</button>
+            </div>
+        </div>
+        <div id="result" class="hidden">
+            <h2 class="text-3xl font-bold mb-4">All Questions and Correct Answers</h2>
+            <ul id="question-answers" class="pl-4 "></ul>
+        </div>
+    </div>
+
+    <script>
+        const questions = [
+    {
+        "question": "Java is a ________ programming language",
+        "options": ["A. high-level", "B. Middle-level", "C. Low-level", "D. None of the above"],
+        "answer": "A. high-level"
+    },
+    {
+        "question": "Which of the following are corect advantage of java?",
+        "options": ["A. Java is Simple", "B. Java is Secure", "C. Java is Portable", "D. All of the above"],
+        "answer": "D. All of the above"
+    },
+    {
+        "question": "Sun Microsystems released the first public implementation as Java 1.0 in?",
+        "options": ["A. 1994", "B. 1995", "C. 1996", "D. 1997"],
+        "answer": "B. 1995"
+    },
+    {
+        "question": "In which year, Sun Microsystems released much of its Java virtual machine?",
+        "options": ["A. 2005", "B. 2006", "C. 2007", "D. 2008"],
+        "answer": "C. 2007"
+    },
+    {
+        "question": "Java SE 15 version released on?",
+        "options": ["A. March 19, 2019", "B. March 17, 2020", "C. September 17, 2019", "D. September 15, 2020"],
+        "answer": "B. March 17, 2020"
+    },
+    {
+        "question": "What is encapsulation in Java?",
+        "options": ["a) The process of combining data and methods into a single unit", "b) The process of hiding data and methods within a class", "c) The process of creating multiple instances of a class", "d) The process of reusing code from existing classes"],
+        "answer": "b) The process of hiding data and methods within a class"
+    },
+    {
+        "question": "What is inheritance in Java?",
+        "options": ["a) The process of creating multiple instances of a class", "b) The process of hiding data and methods within a class", "c) The process of reusing code from existing classes", "d) The process of combining data and methods into a single unit"],
+        "answer": "c) The process of reusing code from existing classes"
+    },
+    {
+        "question": "What is the difference between method overloading and method overriding in Java?",
+        "options": ["a) Method overloading occurs within the same class, while method overriding occurs between different classes.", "b) Method overloading involves creating multiple methods with the same name but different parameters, while method overriding involves providing a different implementation for an inherited method.", "c) Method overloading is a compile-time polymorphism concept, while method overriding is a runtime polymorphism concept.", "d) All of the above."],
+        "answer": "d) All of the above."
+    },
+    {
+        "question": "What is polymorphism in Java?",
+        "options": ["a) The ability of a class to inherit properties and behaviors from another class", "b) The process of hiding data and methods within a class", "c) The process of creating multiple instances of a class", "d) The ability of an object to take on many forms"],
+        "answer": "d) The ability of an object to take on many forms"
+    },
+    {
+        "question": "What are abstract classes in Java?",
+        "options": ["a) Classes that cannot be instantiated", "b) Classes that can be used as blueprints for creating objects", "c) Classes that only contain abstract methods", "d) All of the above"],
+        "answer": "d) All of the above"
+    },
+    {
+        "question": "What is the purpose of the \"super\" keyword in Java?",
+        "options": ["a) To refer to the current object", "b) To invoke the superclass constructor or methods", "c) To create multiple instances of a class", "d) To hide data and methods within a class"],
+        "answer": "b) To invoke the superclass constructor or methods"
+    },
+    {
+        "question": "What is the difference between a class and an object in Java?",
+        "options": ["a) A class is a blueprint for creating objects, while an object is an instance of a class.", "b) A class is a single entity, while an object is a collection of entities.", "c) A class contains data and methods, while an object only contains data.", "d) A class cannot be instantiated, while an object can be created and used."],
+        "answer": "a) A class is a blueprint for creating objects, while an object is an instance of a class."
+    },
+    {
+        "question": "What is the purpose of the \"this\" keyword in Java?",
+        "options": ["a) To refer to the superclass", "b) To create multiple instances of a class", "c) To hide data and methods within a class", "d) To refer to the current object"],
+        "answer": "d) To refer to the current object"
+    },
+    {
+        "question": "What is method overriding in Java?",
+        "options": ["a) Creating multiple methods with the same name but different parameters within the same class.", "b) Providing a different implementation for an inherited method in a subclass.", "c) Hiding data and methods within a class.", "d) Allowing a class to inherit properties and behaviors from another class."],
+        "answer": "b) Providing a different implementation for an inherited method in a subclass."
+    },
+    {
+        "question": "What is the purpose of the \"final\" keyword in Java?",
+        "options": ["a) To prevent the inheritance of a class", "b) To prevent overriding of a method", "c) To prevent modification of a variable's value", "d) All of the above"],
+        "answer": "d) All of the above"
+    },
+    {
+        "question": "What is the purpose of the \"abstract\" keyword in Java?",
+        "options": ["a) To prevent the inheritance of a class", "b) To prevent overriding of a method", "c) To create an instance of a class", "d) To declare an abstract class or method"],
+        "answer": "d) To declare an abstract class or method"
+    },
+    {
+        "question": "What is the difference between static and instance variables in Java?",
+        "options": ["a) Static variables are associated with the class itself, while instance variables are associated with an instance of a class.", "b) Static variables are shared among all instances of a class, while instance variables have separate values for each instance.", "c) Static variables can be accessed without creating an object, while instance variables require an object reference.", "d) All of the above."],
+        "answer": "d) All of the above."
+    },
+    {
+        "question": "What is the concept of data hiding in Java?",
+        "options": ["a) Encapsulating data within a class and providing controlled access through methods", "b) Making data accessible to all classes in the program", "c) Storing data in a central repository accessible to multiple classes", "d) Restricting access to data within a specific package"],
+        "answer": "a) Encapsulating data within a class and providing controlled access through methods"
+    },
+    {
+        "question": "What is the difference between static and instance variables in Java?",
+        "options": ["a) Static variables are associated with the class itself, while instance variables are associated with an instance of a class.", "b) Static variables are shared among all instances of a class, while instance variables have separate values for each instance.", "c) Static variables can be accessed without creating an object, while instance variables require an object reference.", "d) All of the above."],
+        "answer": "d) All of the above."
+    },
+    {
+        "question": "What is the concept of data hiding in Java?",
+        "options": ["a) Encapsulating data within a class and providing controlled access through methods", "b) Making data accessible to all classes in the program", "c) Storing data in a central repository accessible to multiple classes", "d) Restricting access to data within a specific package"],
+        "answer": "a) Encapsulating data within a class and providing controlled access through methods"
+    },
+    {
+        "question": "What is the primary goal of Object-Oriented Programming (OOP)?",
+        "options": ["A) Improving code readability", "B) Maximizing memory usage", "C) Enhancing network connectivity", "D) Promoting code duplication"],
+        "answer": "A) Improving code readability"
+    },
+    {
+        "question": "What is an object in Java?",
+        "options": ["A) A blueprint for creating classes", "B) A template for creating methods", "C) An instance of a class with its own state and behavior", "D) A reserved keyword in Java"],
+        "answer": "C) An instance of a class with its own state and behavior"
+    },
+    {
+        "question": "Which concept allows you to define multiple methods in OOP with the same name but different parameters in the same class?",
+        "options": ["A) Polymorphism", "B) Inheritance", "C) Abstraction", "D) Overloading"],
+        "answer": "D) Overloading"
+    },
+    {
+        "question": "What is the purpose of the “super” keyword in Java?",
+        "options": ["A) To create a new instance of a class", "B) To access static methods", "C) To call the constructor of the superclass", "D) To initialize instance variables"],
+        "answer": "C) To call the constructor of the superclass"
+    },
+    {
+        "question": "Which OOP concept allows you to define a new class based on an existing class, inheriting its attributes and methods?",
+        "options": ["A) Abstraction", "B) Polymorphism", "C) Encapsulation", "D) Inheritance"],
+        "answer": "D) Inheritance"
+    },
+    {
+        "question": "What is encapsulation in Java?",
+        "options": ["A) Hiding the internal details of an object and providing a public interface", "B) Defining multiple methods with the same name but different parameters", "C) Creating a new class from an existing class", "D) Storing data in a single variable"],
+        "answer": "A) Hiding the internal details of an object and providing a public interface"
+    },
+    {
+        "question": "Which access modifier allows a class’s members (fields and methods) to be accessible only within the same package?",
+        "options": ["A) private", "B) protected", "C) public", "D) default (package-private)"],
+        "answer": "D) default (package-private)"
+    },
+    {
+        "question": "What is the relationship between a superclass and a subclass in Java?",
+        "options": ["A) Unrelated classes", "B) Independent classes", "C) Parent-child classes", "D) Identical classes"],
+        "answer": "C) Parent-child classes"
+    },
+    {
+        "question": "Which OOP concept allows a class to implement multiple interfaces?",
+        "options": ["A) Inheritance", "B) Polymorphism", "C) Encapsulation", "D) Interface implementation"],
+        "answer": "D) Interface implementation"
+    },
+    {
+        "question": "What is the purpose of the “this” keyword in Java?",
+        "options": ["A) To create a new instance of a class", "B) To refer to the current instance of the class", "C) To access static members of the class", "D) To define constructors"],
+        "answer": "B) To refer to the current instance of the class"
+    },
+    {
+        "question": "What is a Type Wrapper or simply a Wrapper in Java?",
+        "options": ["A) A Wrapper class is an object version of Primitive Data Type", "B) A Wrapper provides additional methods for ease of use", "C) Wrapper types are useful for using with generic collections", "D) All the above"],
+        "answer": "D) All the above"
+    },
+    {
+        "question": "Which primitive data types have wrapper classes available?",
+        "options": ["A) byte, short, int, long", "B) float, double", "C) boolean, char", "D) All the above"],
+        "answer": "D) All the above"
+    },
+    {
+        "question": "Choose the correct mapping of Primitive Data Types and Wrapper Classes below?",
+        "options": ["A) boolean = Boolean, char = Character", "B) byte = Byte, short = Short, int = Integer, long = Long", "C) float = Float, double = Double", "D) All the above"],
+        "answer": "D) All the above"
+    },
+    {
+        "question": "State TRUE or FALSE. Java primitive data types work faster compared to their Wrapper counterparts.",
+        "options": ["A) TRUE", "B) FALSE", "C) -", "D) -"],
+        "answer": "A) TRUE"
+    },
+
+    {
+        "question": "Which are the methods a Wrapper class object can use in Java?",
+        "options": ["A) byteValue(), shortValue, intValue(), longValue()", "B) floatValue(), doubleValue()", "C) booleanValue(), charValue()", "D) All the above"],
+        "answer": "D) All the above"
+    },
+    {
+        "question": "Which is the superclass of wrapper classes like Boolean and Character?",
+        "options": ["A) Number", "B) Wrapper", "C) Object", "D) Math"],
+        "answer": "C) Object"
+    },
+    {
+        "question": "Are the sizes of float and Float same or different in Java?",
+        "options": ["A) Same", "B) Different", "C) -", "D) -"],
+        "answer": "B) Different"
+    },
+    {
+        "question": "Which are the constant fields available a Wrapper Class object in Java?",
+        "options": ["A) BYTES, SIZE", "B) MAX_VALUE, MAX_EXPONENT", "C) MIN_VALUE, MIN_EXPONENT", "D) All the above"],
+        "answer": "D) All the above"
+    },
+    {
+        "question": "Which of the below method of the String class can be used to test string equality?",
+        "options": ["A) equals()", "B) isEqual()", "C) isequals()", "D) equal()"],
+        "answer": "A) equals()"
+    },
+    {
+        "question": "Which of the below method of String class is used to obtain character at specified index?",
+        "options": ["A) char()", "B) Charat()", "C) charAt()", "D) CharacterAt()"],
+        "answer": "C) charAt()"
+    },
+    {
+        "question": "What is the full form of Java String SCP?",
+        "options": ["A) String Collection Pool", "B) String Constant Pool", "C) String Common Pool", "D) String Count Pool"],
+        "answer": "B) String Constant Pool"
+    },
+    {
+        "question": "Which of the below method of the String class can be used to find the total number of characters in the String?",
+        "options": ["A) chars()", "B) size()", "C) len()", "D) length()"],
+        "answer": "D) length()"
+    },
+    {
+        "question": "What would be the output of the below code related to String equality?\nString s = new String(\"PraBhu\");\nString p = new String(\"PraBhu\");\nSystem.out.println(s == p);",
+        "options": ["A) true", "B) false"],
+        "answer": "B) false"
+    },
+    {
+        "question": "Choose the correct output of the below code about String – Character Equality?\nCharacter c = 'A';\nString s = \"A\";\nSystem.out.println(c.equals(s));",
+        "options": ["A) true", "B) false"],
+        "answer": "B) false"
+    },
+    {
+        "question": "Choose the correct output of the below code about the String value equality?\nString s = new String(\"ADevGuide\");\nString p = new String(\"ADevguide\");\nSystem.out.println(s.equals(p));",
+        "options": ["A) true", "B) false"],
+        "answer": "B) false"
+    },
+    {
+        "question": "Choose the correct output of the below code about String addition?\nString s1 = \"ADev\";\nString s2 = \"Guide\";\nString s3 = s1 + s2;\nString s4 = \"ADevGuide\";\nSystem.out.println(s4 == s3);",
+        "options": ["A) true", "B) false"],
+        "answer": "B) false"
+    },
+    {
+        "question": "Choose the correct output of the below code about String compile-time addition?\nString s1 = \"ADev\";\nString s2 = \"Guide\";\nString s3 = \"ADev\" + \"Guide\";\nString s4 = \"ADevGuide\";\nSystem.out.println(s4 == s3);",
+        "options": ["A) true", "B) false"],
+        "answer": "A) true"
+    },
+    {
+        "question": "Choose the correct output of the below code?\nString s1 = \"ADev\";\nString s2 = \"Guide\";\nString s3 = s1 + \"Guide\";\nString s4 = \"ADevGuide\";\nSystem.out.println(s4 == s3);",
+        "options": ["A) true", "B) false"],
+        "answer": "A) true"
+    },
+    {
+        "question": "Choose the correct output of the below code?\nString s1 = new String(\"ADevGuide\");\nString s2 = s1.intern();\nString s3 = \"ADevGuide\";\nSystem.out.println(s1 == s2);\nSystem.out.println(s2 == s3);",
+        "options": ["A) true false", "B) true true", "C) false false", "D) false true"],
+        "answer": "B) true true"
+    },
+    {
+        "question": "Is the below statement true about the SCP and Garbage Collector?\nGarbage Collector is not allowed to access SCP. SCP is destroyed only on JVM Shutdown.",
+        "options": ["A) True", "B) False"],
+        "answer": "B) False"
+    },
+    {
+        "question": "Choose the correct output of the below code about String default value?\nString s1 = new String();\nSystem.out.println(s1 == null);\nSystem.out.println(s1 == \"\");",
+        "options": ["A) true false", "B) true true", "C) false false", "D) false true"],
+        "answer": "B) true true"
+    },
+    {
+        "question": "Choose the correct output of the below code about String Builder?\nString s1 = \"ADevGuide\";\nStringBuilder sb1 = new StringBuilder(\"ADevGuide\");\nSystem.out.println(sb1.equals(s1));",
+        "options": ["A) true", "B) false"],
+        "answer": "B) false"
+    },
+    {
+        "question": "Java was designed by _________________.",
+        "options": ["A. Microsoft", "B. Mozilla Corporation", "C. Sun Microsystems", "D. Amazon Inc."],
+        "answer": "C. Sun Microsystems"
+    },
+    {
+        "question": "Earlier name of Java Programming language was -",
+        "options": ["A. Eclipse", "B. OAK", "C. Netbean", "D. D"],
+        "answer": "B. OAK"
+    },
+    {
+        "question": "Which of the following personality is called as father of Java Programming language -",
+        "options": ["A. James Gosling", "B. Larry Page", "C. Bjarne Stroustrup", "D. None of these"],
+        "answer": "A. James Gosling"
+    },
+    {
+        "question": "Why OAK was renamed to Java ?",
+        "options": ["A. because the language was unsuccessful , so they created another version and changed its name to java.", "B. because the name was not relevant to the language they created", "C. because there was another language called Oak", "D. None of these"],
+        "answer": "C. because there was another language called Oak"
+    },
+    {
+        "question": "Java was publicly released in _______________ .",
+        "options": ["A. 25-05-1995", "B. 27-05-1995", "C. 29-05-1995", "D. 28-05-1995"],
+        "answer": "B. 27-05-1995"
+    },
+    {
+        "question": "After first public release java was targeted at ______________________.",
+        "options": ["A. Internet development", "B. Search Engine Development", "C. Desktop Development", "D. Operating System Development"],
+        "answer": "A. Internet development"
+    },
+    {
+        "question": "Which kind of language java is ?",
+        "options": ["A. Object Oriented", "B. Procedural", "C. Event Driven", "D. None of these"],
+        "answer": "A. Object Oriented"
+    },
+    {
+        "question": "First public implementation of java was _____________",
+        "options": ["A. Java 1.2", "B. Java 1.0", "C. Java 1.1", "D. Java Premium 1.0"],
+        "answer": "B. Java 1.0"
+    },
+    {
+        "question": "In the beginning, Java was created in order to -",
+        "options": ["A. Perform Operations on the Internet", "B. Connect many household machines", "C. Create Strong Programming alternative to C++", "D. ALL of the above"],
+        "answer": "D. ALL of the above"
+    },
+    {
+        "question": "Basic aim of java was to solve the problem of connecting many household machines together.",
+        "options": ["A. Java data kit", "B. Java defination kit", "C. Java design kit", "D. Java development kit"],
+        "answer": "D. Java development kit"
+    }
+];
+
+        let currentQuestionIndex = 0;
+
+        function renderQuestion() {
+            const currentQuestion = questions[currentQuestionIndex];
+            const questionElement = document.getElementById('question');
+            const optionsElement = document.getElementById('options');
+
+            questionElement.textContent = currentQuestion.question;
+            optionsElement.innerHTML = '';
+
+            currentQuestion.options.forEach((option, index) => {
+                const li = document.createElement('li');
+                li.textContent = option;
+                li.classList.add('option-btn');
+                li.addEventListener('click', () => {
+                    checkAnswer(index);
+                });
+                optionsElement.appendChild(li);
+            });
+        }
+
+        function checkAnswer(selectedIndex) {
+            const currentQuestion = questions[currentQuestionIndex];
+            const selectedOption = currentQuestion.options[selectedIndex];
+            const correctOption = currentQuestion.answer;
+
+            const optionElements = document.querySelectorAll('.option-btn');
+            optionElements.forEach(option => option.classList.remove('correct', 'wrong'));
+
+            if (selectedOption === correctOption) {
+                event.target.classList.add('correct');
+            } else {
+                event.target.classList.add('wrong');
+            }
+        }
+
+        function nextQuestion() {
+            currentQuestionIndex++;
+            if (currentQuestionIndex < questions.length) {
+                renderQuestion();
+            } else {
+                showResult();
+            }
+        }
+
+        function previousQuestion() {
+            if (currentQuestionIndex > 0) {
+                currentQuestionIndex--;
+                renderQuestion();
+            }
+        }
+
+        function showResult() {
+            document.getElementById('quiz').classList.add('hidden');
+            document.getElementById('result').classList.remove('hidden');
+
+            const questionAnswersElement = document.getElementById('question-answers');
+            questionAnswersElement.innerHTML = '';
+
+            questions.forEach((question, index) => {
+                const li = document.createElement('li');
+                li.textContent = `${index + 1}. ${question.question} \n  -  ${question.answer}`;
+                questionAnswersElement.appendChild(li);
+            });
+        }
+
+        renderQuestion();
+    </script>
+
+<script type="module">
+    import { initializeApp  } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js";
+import {  getAuth, signOut , onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-auth.js";
+
+const firebaseConfig = {
+apiKey: "AIzaSyCHPiWo28mcgmDwmSQ7OaDNKvLb3w6_DBc",
+authDomain: "notes-user.firebaseapp.com",
+projectId: "notes-user",
+storageBucket: "notes-user.appspot.com",
+messagingSenderId: "1065283327239",
+appId: "1:1065283327239:web:f78f42e7832df43f65a1a2"
+};
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+
+document.getElementById("lbtn").addEventListener('click',(e)=>{
+const auth = getAuth();
+signOut(auth).then(() => {
+// Sign-out successful.
+alert("You are SignOut Successfully")
+window.location.replace("index.html")
+}).catch((error) => {
+// An error happened.
+alert(error)
+});
+})
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    
+    const uid = user.uid; 
+   
+    // ...
+  } else {
+    location.replace("SBUP_Notes_Login_user.html")
+  }
+}); 
+
+document.addEventListener("contextmenu", (event) => {
+         event.preventDefault();
+      });
+
+      
+  </script>
+</body>
+</html>
